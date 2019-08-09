@@ -1,0 +1,5 @@
+api/node_modules
+ip/log*.txt
+
+myApp/node_modules
+myApp/dist
