@@ -11,7 +11,7 @@ table = db.table  # 所有的ip表
 ip_table = db.ip  # 有效ip表
 
 # 线程池
-spider_poll_max = 20  # 爬虫线程池最大数量
+spider_poll_max = 50  # 爬虫线程池最大数量
 # 爬虫线程池 max_workers最大数量
 proving_poll = ThreadPoolExecutor(max_workers=spider_poll_max)
 
@@ -39,17 +39,18 @@ def proving(ip):
                                 timeout=REQ_TIMEOUT, proxies=proxies).content
         # 删除代理
         if OrigionalIP == MaskedIP:
-            result = table.delete_one(
-                {"ip": host, "port": port, "type": types})
+            table.delete_one({"ip": host, "port": port, "type": types})
             # print('删除成功', result.deleted_count)
         else:
             print('新增有效代理', host+':'+port)
             # 有效代理则存到ip表中
             ip_table.insert_one({"ip": host, "port": port, "type": types})
+            # 同时删除原数据中的数据,防止下次重复添加到ip表中
+            table.delete_one({"ip": host, "port": port, "type": types})
     except:
         # 删除代理
         # print('删除成功')
-        result = table.delete_one({"ip": host, "port": port, "type": types})
+        table.delete_one({"ip": host, "port": port, "type": types})
         # print(result.deleted_count)
 
 

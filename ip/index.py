@@ -12,7 +12,7 @@ table = db.table  # 将抓取的ip全部存到table表中
 ip_table = db.ip  # 有效ip表
 
 # 线程池
-spider_poll_max = 5  # 爬虫线程池最大数量
+spider_poll_max = 7  # 爬虫线程池最大数量
 # 爬虫线程池 max_workers最大数量
 spider_poll = ThreadPoolExecutor(max_workers=spider_poll_max)
 
@@ -26,6 +26,7 @@ def getRandomIp():
     count = ip_table.count_documents({})  # 查询一共有多少数据
     # 随机取一个
     index = random.randint(0, count)  # 获取0到count的随机整数
+    print(count, index)
     data = ip_table.find().skip(index).limit(1)
 
     for item in data:
@@ -57,6 +58,14 @@ def getIp(page):
             '/html/body/div[1]/div[3]/div[2]/table/tbody/tr/td[2]/text()')
         if (len(ips) == 0):
             print('抓取数据为空', row)
+            # 写日志
+            with open('./log.txt', 'a', -1, 'utf-8') as f:
+                f.write(response.text)
+                f.write('--------------------------------------------------')
+                f.write('\n')
+                f.write('\n')
+                f.write('\n')
+                f.write('\n')
             # 删除无效代理
             ip_table.delete_one({"ip": row['ip'], "port": row['port']})
         else:
@@ -74,6 +83,6 @@ def getIp(page):
 
 
 # 抓取网页的数量
-for page in range(0, 10):
+for page in range(0, 100):
     # 添加一个线程
     spider_poll.submit(getIp, (page))
