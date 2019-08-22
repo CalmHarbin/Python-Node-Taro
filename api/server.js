@@ -7,11 +7,10 @@ const { get_salary } = require('./api/salary.js')
 
 //用node中的http创建服务器 并传入两个形参
 http.createServer(function(req, res) {
-    // console.log(req)
     //设置请求头  允许所有域名访问 解决跨域
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.writeHead(200, { 'Content-Type': 'application/json;charset=utf-8' }) //设置response编码
-    // res.writeHead(200, { 'Content-Type': 'text/HTML;charset=utf-8' }); //设置response编码
+
     try {
         //获取地址中的参数部分
         var query = url.parse(req.url).query
@@ -46,48 +45,6 @@ http.createServer(function(req, res) {
     } catch (err) {
         res.end(err)
     }
-
-    // //创建变量保存post请求参数
-    // var data = '';
-    // if (req.method === 'GET') {
-    //     //get请求转发
-    //     request(
-    //         {
-    //             url: myUrl,
-    //             method: 'GET'
-    //         },
-    //         function(error, response, body) {
-    //             res.end(response.body);
-    //         }
-    //     );
-    // } else {
-    //     //post请求转发
-    //     req.on('data', function(chunk) {
-    //         data += chunk;
-    //         //将字符串转换位一个对象
-    //         var post_query = qs.parse(data.toString());
-    //         request(
-    //             {
-    //                 url: myUrl,
-    //                 method: 'POST',
-    //                 json: true,
-    //                 headers: {
-    //                     'content-type': 'application/json'
-    //                 },
-    //                 body: post_query
-    //             },
-    //             function(error, response, body) {
-    //                 // console.log(response.body);
-    //                 // if (!error && response.statusCode == 200) {
-    //                 //     console.log(body); // 请求成功的处理逻辑
-    //                 // }
-    //                 console.log(response.body);
-    //                 console.log(53, body);
-    //                 res.end(JSON.stringify(body));
-    //             }
-    //         );
-    //     });
-    // }
 }).listen(8989, function(err) {
     if (!err) {
         console.log('服务器启动成功，正在监听8989...')
