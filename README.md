@@ -25,8 +25,8 @@
 
 <!-- # <center>Python 爬虫</center> -->
 
-先来看一张图了解下爬虫
-<img src=http://hy.mendalegroup.com:81/img/spider.png height=300>
+先来看一张图了解下爬虫<br>
+<img src=http://hy.mendalegroup.com:81/img/spider.png height=500 />
 
 ---
 
@@ -39,12 +39,13 @@
 
 ### 1、多线程爬取拉勾网招聘信息
 
-#####Tip:涉及知识
+##### Tip:涉及知识
 
-> 1.Python3 基础语法 [菜鸟教程](https://www.runoob.com/python3/python3-tutorial.html)
-> 2.requests 模块 [快速上手](https://www.cnblogs.com/howhy/articles/7591072.html)
-> 3.Mongodb 数据库 [快速安装](https://note.youdao.com/ynoteshare1/index.html?id=55288775d17953249a4df183d97fecc8&type=note)
-> 4.pymongo 的使用 [快速上手](http://note.youdao.com/noteshare?id=6d6ee34fbe9c011fa542b2373fbcc208) <br/> 5.线程池 concurrent [快速上手](http://note.youdao.com/noteshare?id=5e54073e424eda8b29dc93f5825ce363)
+> 1.Python3 基础语法 [菜鸟教程](https://www.runoob.com/python3/python3-tutorial.html) <br/>
+> 2.requests 模块 [快速上手](https://www.cnblogs.com/howhy/articles/7591072.html) <br/>
+> 3.Mongodb 数据库 [快速安装](https://note.youdao.com/ynoteshare1/index.html?id=55288775d17953249a4df183d97fecc8&type=note) <br/>
+> 4.pymongo 的使用 [快速上手](http://note.youdao.com/noteshare?id=6d6ee34fbe9c011fa542b2373fbcc208) <br/> 
+> 5.线程池 concurrent [快速上手](http://note.youdao.com/noteshare?id=5e54073e424eda8b29dc93f5825ce363)
 
 首先我们先了解下什么是爬虫，看下百度百科的定义
 
@@ -336,13 +337,14 @@ for idx, key_world in enumerate(key_worlds):
 
 目前还需要解决的两个问题,等有了代理 ip 池再解决。
 
-> 1.未使用多线程 <br>2.还是会存在封 ip 的情况,需要使用代理
+> 1.未使用多线程 <br>
+> 2.还是会存在封 ip 的情况,需要使用代理
 
 ### 2、维护代理 ip 池
 
-#####Tip:涉及知识
+##### Tip:涉及知识
 
-> 1.之前的所有知识
+> 1.之前的所有知识 <br/>
 > 2.xpath 解析模块 lxml [快速上手](https://www.cnblogs.com/zhangxinqi/p/9210211.html)
 
 维护一个 ip 池大致分为两步
@@ -858,11 +860,11 @@ for page in range(0, 100):
 
 ### 3、搭建 node 服务器
 
-#####Tip:涉及知识
+##### Tip:涉及知识
 
-> 1.JavaScript 基础语法 [菜鸟教程](https://www.runoob.com/js/js-tutorial.html)
-> 2.http 模块 [快速上手](https://blog.csdn.net/woshinannan741/article/details/51357464)
-> 3.mongoose 模块 [快速安装](http://note.youdao.com/noteshare?id=1727af1e13c0575b737e3fd5157c87f9)
+> 1.JavaScript 基础语法 [菜鸟教程](https://www.runoob.com/js/js-tutorial.html) <br/>
+> 2.http 模块 [快速上手](https://blog.csdn.net/woshinannan741/article/details/51357464) <br/>
+> 3.mongoose 模块 [快速安装](http://note.youdao.com/noteshare?id=1727af1e13c0575b737e3fd5157c87f9) <br/>
 
 server.js
 
@@ -992,20 +994,27 @@ collections.forEach(collection => {
 exports.model = model;
 ```
 
-然后我们用运行 server.js 文件, cmd 中输入 node server.js
-<img src="http://hy.mendalegroup.com:81/img/4.png">
-运行成功后再用浏览器打开 [localhost:8989/get_education?type=Python](localhost:8989/get_education?type=Python)就可以看到数据了
+然后我们用运行 server.js 文件, cmd 中输入 node server.js <br/>
+
+<img src="http://hy.mendalegroup.com:81/img/4.png"> <br/>
+
+运行成功后再用浏览器打开 [localhost:8989/get_education?type=Python](localhost:8989/get_education?type=Python)就可以看到数据了 <br/>
+
 <img src="http://hy.mendalegroup.com:81/img/5.png">
 
 ### 4、Taro 使用 echarts 做数据分析
 
-#####Tip:涉及知识
+##### Tip:涉及知识
 
-> 1.熟悉微信小程序 [官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/structure.html) <br> 2.熟悉 react 语法 [官方文档](https://zh-hans.reactjs.org/docs/getting-started.html) <br> 3.熟悉 Taro 的使用 [官方文档](https://nervjs.github.io/taro/docs/GETTING-STARTED.html) <br> 4.熟悉 echarts 的使用 [快速上手](https://www.cnblogs.com/leoxuan/p/6511123.html) [官网实例](https://echarts.baidu.com/examples/) <br> 5.在微信小程序中使用 echarts [快速上手](http://note.youdao.com/noteshare?id=ab60d9a2b1d81fb988b9a13f0b8ee232)
+> 1.熟悉微信小程序 [官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/structure.html) <br/> 
+> 2.熟悉 react 语法 [官方文档](https://zh-hans.reactjs.org/docs/getting-started.html) <br/> 
+> 3.熟悉 Taro 的使用 [官方文档](https://nervjs.github.io/taro/docs/GETTING-STARTED.html) <br/> 
+> 4.熟悉 echarts 的使用 [快速上手](https://www.cnblogs.com/leoxuan/p/6511123.html) [官网实例](https://echarts.baidu.com/examples/) <br/>
+> 5.在微信小程序中使用 echarts [快速上手](http://note.youdao.com/noteshare?id=ab60d9a2b1d81fb988b9a13f0b8ee232)
 
 代码请移步 [github](https://github.com/CalmHarbin/Python-Node-Taro/tree/master/myApp)
 
-####Tip.
+#### Tip.
 
     1.第一步请先抓取代理存入的table表中
     2.第二步再验证代理确保ip表中有数据
